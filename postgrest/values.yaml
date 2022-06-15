@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: postgrest/postgrest
-  tag: v5.2.0
+  tag: v9.1.0
   pullPolicy: IfNotPresent
 
 nameOverride: ""
@@ -38,7 +38,7 @@ postgrest:
   db_anon_role:
   db_pool: 100
   server_host: '*4'
-  server_port: 3000
+  server_port: 5000
   server_proxy_uri:
   jwt_secret:
   secret_is_base64: false

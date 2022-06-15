@@ -84,14 +84,12 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
+          livenessProbe:  # @TODO fix liveness probe with httpGet
+            tcpSocket:
+              port: {{ .Values.service.port }}
+          readinessProbe: # @TODO fix readiness probe with httpGet
+            tcpSocket:
+              port: {{ .Values.service.port }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
